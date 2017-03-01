@@ -1,0 +1,15 @@
+double frequency(char bits[], int nBits);
+double blockFrequency(char bits[], int nBits, int blockSize);
+double cumulativeSums(char bits[], int nBits, double *returnValue1);
+double runs(char bits[], int nBits);
+double longestRunsOfOnes(char bits[], int nBits);
+double rank(char bits[],int  nBits);
+double discreteFourierTransform(char bits[], int nOfBits);
+double nonOverlappingTemplateMatchings(char bits[], int nBits, int nonVerlappingTemplateBlockLength);
+double overlappingTemplateMatchings(char bits[], int nBits, int overlappingTemplateBlockLength);
+double universal(char bits[], int nBits);
+double approximateEntropy(char bits[], int nBits, int approximateEntropyBlockLength);
+double randomExcursions(char bits[], int nBits, double *returnValue2);
+double randomExcursionsVariant(char bits[], int nBits, double *returnValues);
+double serial(char bits[], int nBits, int serialBlockLength, double *returnValues);
+double linearComplexity(char bits[], int nBits, int linearComplexitySequenceLength);
