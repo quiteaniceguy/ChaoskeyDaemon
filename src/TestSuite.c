@@ -6,7 +6,7 @@
 #define TRUE 1
 
 void asciiBitFileReader(char *outputBits, FILE *inputFile, int bitCount);
-void rawBitReader(char *outputbits, FILE *inputFile, int bitCount);
+int rawBitReader(char *outputbits, FILE *inputFile, int bitCount);
 void printBytes(char *bits, int bitCount);
 
 int bitCount;
@@ -51,11 +51,17 @@ int main(int argc, char *argv[]){
 	}
 	
 	if(raw){
-		rawBitReader(bits, file, bitCount);
+		if(rawBitReader(bits, file, bitCount)){
+			printf("failed reading file");
+			return 1;
+		}
 		printf("reading raw bits\n");
 	}else{
 		asciiBitFileReader(bits, file, bitCount);
 	}
+
+
+
 
 	printBytes(bits, bitCount);
 	printf("frequency test: %f\n", frequency(bits, bitCount));
@@ -90,7 +96,7 @@ int main(int argc, char *argv[]){
 	double *revValues=malloc(sizeof(double)*20);
 	double revSize=randomExcursionsVariant(bits, bitCount, revValues);
 
-	for(i=0; i<3; i++){
+	for(i=0; i<revSize; i++){
 		printf("random excursions variant test: %f\n", revValues[i]);
 	}
 	
@@ -131,9 +137,16 @@ void asciiBitFileReader(char *outputBits, FILE *inputFile, int bitCount){
 	}
 }
 
-void rawBitReader(char *outputBits, FILE *inputFile, int bitCount){
+int rawBitReader(char *outputBits, FILE *inputFile, int bitCount){
 	//(ptr to array, size of each byte, number of bytes to read, inputfile)
+	
 	fread(outputBits, 1,  bitCount/8, inputFile);
+	if(file!=0){
+		return 0;
+		
+	}else{	
+		return 1;
+	}
 	
 
 }

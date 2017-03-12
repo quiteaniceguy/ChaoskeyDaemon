@@ -46,7 +46,7 @@ double randomExcursionsVariant(char bits[], int n, double *returnValue)
 	
 	free(S_k);
 
-	return 17; 
+	return 18; 
 
 	
 
