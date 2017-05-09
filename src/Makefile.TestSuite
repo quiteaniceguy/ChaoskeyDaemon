@@ -1,0 +1,21 @@
+# Copyright © 2016 Bart Massey and Thomas Eblen
+# Makefile for NIST assess stuff.
+
+CC = gcc
+#CDEBUG = -O4
+CDEBUG = -g
+CFLAGS = -Wall $(CDEBUG)
+
+OBJS = 	approximateEntropy.o blockFrequency.o cephes.o \
+	cusum.o dfft.o discreteFourierTransform.o frequency.o \
+	genutils.o linearComplexity.o \
+	longestRunOfOnes.o matrix.o \
+	nonOverlappingTemplateMatchings.o \
+	overlappingTemplateMatchings.o randomExcursions.o \
+	randomExcursionsVariant.o rank.o runs.o serial.o universal.o \
+
+TestSuite: $(OBJS) TestSuite.o
+	$(CC) $(CFLAGS) -o TestSuite TestSuite.o $(OBJS) -lm
+
+clean:
+	-rm -f $(OBJS) TestSuite.o TestSuite

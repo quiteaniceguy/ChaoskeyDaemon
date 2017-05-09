@@ -16,7 +16,6 @@ double randomExcursions(char bits[], int n, double *returnValue)
 
 	
 	int		b, i, j, k, J, x;
-	double testVariable=23;
 	int		cycleStart, cycleStop, *cycle = NULL, *S_k = NULL;
 	int		stateX[8] = { -4, -3, -2, -1, 1, 2, 3, 4 };
 	int		counter[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };

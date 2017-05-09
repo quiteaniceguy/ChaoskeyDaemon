@@ -21,7 +21,7 @@ double nonOverlappingTemplateMatchings(char bits[], int n, int m)
 	number of nonperiodic templates for that file be stored in the m-th 
 	position in the numOfTemplates variable.
 	----------------------------------------------------------------------------*/
-	unsigned int	bit, W_obs, nu[6], *Wj = NULL; 
+	unsigned int	bit, W_obs, *Wj = NULL; 
 	FILE			*fp = NULL;
 	double			sum, chi2, p_value, lambda, pi[6], varWj;
 	int				i, j, jj, k, match, SKIP, M, N, K = 5;
@@ -81,8 +81,6 @@ double nonOverlappingTemplateMatchings(char bits[], int n, int m)
 				//printf("sequence %i: %d", k, sequence[k]);
 			}
 			
-			for ( k=0; k<=K; k++ )
-				nu[k] = 0;
 			for ( i=0; i<N; i++ ) {
 				W_obs = 0;
 				for ( j=0; j<M-m+1; j++ ) {
