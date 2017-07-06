@@ -68,10 +68,10 @@ int main(int argc, char *argv[]){
 void asciiBitFileReader(char *outputBits, FILE *inputFile, int bitCount){
 	char c;
 	int nBitsRead = 0;
-	while (nBitsRead<bitCount && c != EOF) {
+	while (nBitsRead < bitCount && c != EOF) {
 		c = getc(inputFile);
-		if ( c-'0' == 0 || c-'0' == 1) {
-			outputBits[nBitsRead/8] |= (c-'0') << (7-(nBitsRead%8));		
+		if (c-'0' == 0 || c-'0' == 1) {
+			outputBits[nBitsRead / 8] |= (c - '0') << (7 - (nBitsRead % 8));		
 			nBitsRead++;
 		}
 	}
@@ -82,7 +82,7 @@ void asciiBitFileReader(char *outputBits, FILE *inputFile, int bitCount){
 }
 
 int rawBitReader(char *outputBits, FILE *inputFile, int bitCount){
-	fread(outputBits, 1,  bitCount/8, inputFile);
+	fread(outputBits, 1,  bitCount / 8, inputFile);
 	if (file != 0) {
 		return 0;
 		
@@ -90,6 +90,7 @@ int rawBitReader(char *outputBits, FILE *inputFile, int bitCount){
 		return 1;
 	}
 }
+
 void printBytes(char *bits, int bitCount){
 	int j, k;
 	for (j = 0; j < bitCount / 8; j++) {	
@@ -100,6 +101,7 @@ void printBytes(char *bits, int bitCount){
 	}
 	//printf("byte Count %i" , bitCount/8);
 }
+
 int runNistTests(char *bits, int bitCount){
 
 	printf("frequency test: %f\n", frequency(bits, bitCount));
