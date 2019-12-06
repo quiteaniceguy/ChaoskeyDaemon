@@ -3,7 +3,7 @@ This application runs the NistSatisticalTestSuite in an unstupid way(through c),
 
 May be purchased here:
 
-https://altusmetrum.org/ChaosKey/
+https://altusmetrum.org/ChaosKey/,
 http://shop.gag.com/random.html
 
 To compile, run-- 
